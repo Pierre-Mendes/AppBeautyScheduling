@@ -1,9 +1,12 @@
+require("dotenv").config();
 const mongoose = require('mongoose');
-const URI = process.env.MONGODB_URI
 
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnfiedTopology', true);
+mongoose.set("strictQuery", true);
 
-mongoose.connect(URI).then(() => console.log('DB is connected')).catch(err => console.log(err));
+mongoose
+.connect(process.env.MONGO_DEV_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  }).then(() => console.log("Database connected!"))
+  .catch(err => console.log(err));
