@@ -1,9 +1,11 @@
+
+require('./database');
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
-require('dotenv').config();
-require('./database');
 
+const morgan = require('morgan');
 app.use(morgan('dev'));
 app.set('port', 8000);
 
